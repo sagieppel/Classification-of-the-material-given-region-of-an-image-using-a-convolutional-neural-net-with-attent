@@ -1,4 +1,4 @@
-# Classification of the material given region of the image using a convolutional neural net with attention mask as input
+# Classification of materials in a given region of the image using a convolutional neural net with attention mask as input
 
 Given an image and region of interest (ROI) mask as input, the net classifies the region of the image marked in the input ROI mask. 
 
