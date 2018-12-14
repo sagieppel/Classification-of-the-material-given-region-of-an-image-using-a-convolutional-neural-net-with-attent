@@ -6,8 +6,11 @@ Given an image and region of interest (ROI) mask as input, the net classifies th
 Figure 1. Segment-specific Classification using CNN
 
 For example, in Figure 1  the net is given the same image twice with different ROI masks and output the material class of the region marked by each mask.
-Weights file of model trained on the 44 categories of the OpenSurfaces materials dataset is supplied.
+Weights file of model trained on the 44 materialscategories of the OpenSurfaces materials dataset is supplied.
 
+This net achive 82% classification accuracy on the on the opensurface material data set.
+
+For more details see [Classifying a specific image region using convolutional nets with an ROI mask as input](https://arxiv.org/pdf/1812.00291.pdf)
 
 ![](/Figure2.png)
 Figure 2.a Standard Classification net, b. Region specific classification net
