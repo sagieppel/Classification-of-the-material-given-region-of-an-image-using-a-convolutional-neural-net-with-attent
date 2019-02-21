@@ -7,7 +7,7 @@
 
 import numpy as np
 import AttentionNet as Net
-
+import matplotlib.pyplot as plt
 import OpenSurfacesClasses
 import cv2
 import torch
@@ -38,15 +38,17 @@ ROIMask=cv2.imread(ROIMaskFile,0)
 # cv2.imshow("Image",Images)
 # cv2.imshow("Mask",ROIMask*255)
 Images = Images[..., :: -1]
-misc.imshow(Images)
-misc.imshow(ROIMask*255)
+imgplot = plt.imshow(Images)
+plt.show()
+imgplot=plt.imshow(ROIMask*255) # Disply ROI mask
+plt.show()
 
 Images=np.expand_dims(Images,axis=0).astype(np.float32)
 ROIMask=np.expand_dims(ROIMask,axis=0).astype(np.float32)
 #-------------------Run Prediction----------------------------------------------------------------------------
 Prob, PredLb = Net.forward(Images, ROI=ROIMask,EvalMode=True)  # Run net inference and get prediction
-PredLb = np.array(PredLb.data)
-Prob = np.array(Prob.data)
+PredLb = PredLb.data.cpu().numpy()
+Prob = Prob.cpu().numpy()
 #---------------Print Prediction--------------------------------------------------------------------------
 dic=OpenSurfacesClasses.CreateMaterialDict()
 print("Predicted Label " + dic[PredLb[0]])

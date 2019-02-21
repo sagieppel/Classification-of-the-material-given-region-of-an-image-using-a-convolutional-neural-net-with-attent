@@ -58,7 +58,7 @@ while (Reader.ImageN<len(Reader.FileList)):
       for i in range(BatchSize):
 #.........................Use net to make predicition.........................................
             Prob, Lb = Net.forward(Images[i:i+1], ROI=SegmentMask[i:i+1],EvalMode=True)  # Run net inference and get prediction
-            PredLb = np.array(Lb.data)
+            PredLb = Lb.data.cpu().numpy()
 #.................................Evaluate accuracy per size range......................................................
             LbSize=SegmentMask[i].sum()
             SzInd=-1
