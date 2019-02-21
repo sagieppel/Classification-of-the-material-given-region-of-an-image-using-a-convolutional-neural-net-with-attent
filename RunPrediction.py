@@ -48,7 +48,7 @@ ROIMask=np.expand_dims(ROIMask,axis=0).astype(np.float32)
 #-------------------Run Prediction----------------------------------------------------------------------------
 Prob, PredLb = Net.forward(Images, ROI=ROIMask,EvalMode=True)  # Run net inference and get prediction
 PredLb = PredLb.data.cpu().numpy()
-Prob = Prob.cpu().numpy()
+Prob = Prob.data.cpu().numpy()
 #---------------Print Prediction--------------------------------------------------------------------------
 dic=OpenSurfacesClasses.CreateMaterialDict()
 print("Predicted Label " + dic[PredLb[0]])
