@@ -135,11 +135,14 @@ class Reader:
                         Img=Img[y0:y0+Hb,x0:x0+Wb,:]
                         Mask=Mask[y0:y0+Hb,x0:x0+Wb]
             Img=cv2.resize(Img,(Wb,Hb),interpolation = cv2.INTER_LINEAR)
-            Mask=cv2.resize(Mask,(Wb,Hb),interpolation = cv2.INTER_LINEAR)
-           # misc.imshow(Img)
+            Mask=cv2.resize(Mask,(Wb,Hb),interpolation = cv2.INTER_NEAREST)
+
+            # import scipy.misc as misc
+            # Img[:,:,0]*=1-Mask
+            # misc.imshow(Img)
 
 #======================Random mirror flip===========================================================================================
-            if random.random() < 0.0:  # Agument the image by mirror image
+            if random.random() < 0.5:  # Agument the image by mirror image
                    Img = np.fliplr(Img)
                    Mask = np.fliplr(Mask)
 #=====================Add to Batch================================================================================================
