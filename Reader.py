@@ -129,12 +129,13 @@ class Reader:
             #     print("dddd")
 
 
-            x0=np.random.randint(low=Xmin,high=Xmax+1)
-            y0=np.random.randint(low=Ymin,high=Ymax+1)
-            # Img[:,:,1]*=Mask
-            # misc.imshow(Img)
-            Img=Img[y0:y0+Hb,x0:x0+Wb,:]
-            Mask=Mask[y0:y0+Hb,x0:x0+Wb]
+            if not (Xmin>=Xmax or Ymin>=Ymax or Xmin<0 or Ymin<0 or Xmax>Img.shape[1] or Ymax>Img.shape[0]):
+                        x0=np.random.randint(low=Xmin,high=Xmax+1)
+                        y0=np.random.randint(low=Ymin,high=Ymax+1)
+                        Img=Img[y0:y0+Hb,x0:x0+Wb,:]
+                        Mask=Mask[y0:y0+Hb,x0:x0+Wb]
+            Img=cv2.resize(Img,(Wb,Hb),interpolation = cv2.INTER_LINEAR)
+            Mask=cv2.resize(Mask,(Wb,Hb),interpolation = cv2.INTER_LINEAR)
            # misc.imshow(Img)
 
 #======================Random mirror flip===========================================================================================
