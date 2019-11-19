@@ -24,7 +24,7 @@ class Reader:
         for FileName in os.listdir(AnnotationDir):
             if AnnotationFileType in FileName:
                 self.FileList.append(FileName)
-        self.FileList=self.FileList[:10]
+     ##   self.FileList=self.FileList[:10]
 #-----------------------Get List o files for each class--------------------------------------------------------------------------
         print("Generating Class Map")
         self.ClassFiles={} # List of all files containing specific Class
