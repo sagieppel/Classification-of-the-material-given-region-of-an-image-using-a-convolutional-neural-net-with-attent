@@ -24,7 +24,8 @@ As shown in Figure 2.b attention focusing is done by using the binary ROI mask t
 ## Setup
 This network was run with [Python 3.6 Anaconda](https://www.anaconda.com/download/) package and [Pytorch](https://pytorch.org/). 
 
-. 
+Training was done using converted version of the opensurface dataset that can be downloaded from here:
+[https://icedrive.net/1/626gsdM5wp](https://icedrive.net/1/626gsdM5wp)
 
 ## Prediction/Inference
 
